@@ -7,15 +7,19 @@
     <p class="mb-4">Знайдено 15 турів</p>
     <!-- CARDS -->
     <div class="row mt-5">
+    {% for index, tour in tours.items() %}
       <div class="col-4">
         <div class="card mb-4">
-          <img src="https://place-hold.it/300x200" class="card-img-top img-fluid" alt="">
+          <img src="{{ tour.picture }}" class="card-img-top img-fluid" alt="">
           <div class="card-body">
-            <h2 class="h5 card-title">Hotel title</h2>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-sm btn-primary">Деталі туру</a>
+            <h2 class="h5 card-title">{{ tour.title }}</h2>
+            <p class="card-text">{{ tour.description }}</p>
+            <a href="{{ url_for('tour', index=index) }}" class="btn btn-sm btn-primary">Деталі туру</a>
           </div>
         </div>
       </div>
+      {% endfor %}
     </div>
   </main>
+
+  {% endblock content %}
