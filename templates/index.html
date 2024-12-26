@@ -11,7 +11,7 @@
     </section>
     <!-- CARDS -->
     <div class="row mt-5">
-    {% for index, tour in tours.items() %}
+    {% for tour in tours %}
       <div class="col-4">
         <div class="card mb-4">
           <div class="embed-responsive embed-responsive-16by9">
@@ -20,7 +20,7 @@
           <div class="card-body">
             <h2 class="h5 card-title">{{ tour.title }}</h2>
             <p class="card-text">{{ tour.description }}</p>
-            <a href="{{ url_for('tour', index=index) }}" class="btn btn-sm btn-primary">Деталі туру</a>
+            <a href="{{ url_for('tour', index=tour.id) }}" class="btn btn-sm btn-primary">Деталі туру</a>
           </div>
         </div>
       </div>
